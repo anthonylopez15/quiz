@@ -23,7 +23,7 @@ Desafio backend para um quiz desenvolvido em Python e Django.
 - O usuário Player somente poderá jogar e consultar o ranking.
 - O que define o tipo de usuário é o campo ``is_staff: true`` para admin, ``is_staff: false`` 
 para usuario não admin. Por default o campo é false caso não seja passado no body da request.
-- Por padrão, no deploy é criado um usário super admin Django como mostra o exemplo na url ``/api/token/`` a seguir.
+- Por padrão, no deploy é criado um usuário super admin Django como mostra o exemplo na url ``/api/token/`` a seguir.
 
 
 # Endpoints
@@ -128,3 +128,12 @@ endpoints na qual será necessário importá-lo para testar no postman.
 request para autenticação.
 - Todas as urls se encontram no postman e podem ser testadas.
 - Para rodar os testes unitários: ``make test``
+
+### Comandos Make
+1. Criar o build dos containers ``make build``
+2. Iniciar os containers docker``make start``
+3. Para os containers ``make stop``
+4. Deletar os serviços ``make down``
+5. Inciar todos os serviços de uma vez ``make start-services``
+6. Inciar unit test ``make test``
+7. Popular o banco com dados ficticios ``make build-data``
