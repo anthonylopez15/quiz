@@ -127,3 +127,4 @@ endpoints na qual será necessário importá-lo para testar no postman.
 - Será necessário adicionar o token nas variaveis de ambiente do postman para que seja passado no header da 
 request para autenticação.
 - Todas as urls se encontram no postman e podem ser testadas.
+- Para rodar os testes unitários: ``make test``
