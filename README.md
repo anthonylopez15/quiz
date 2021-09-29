@@ -96,10 +96,6 @@ PUT /api/quiz/{ID_QUIZ}/
 - Finalizar quiz: 
 ```
 POST /api/quiz/{ID_QUIZ}/finish/
-{
-    "question": 15,
-    "answer": 44
-}
 ```
 - Ranking global 
 ```
