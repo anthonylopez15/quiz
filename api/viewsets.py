@@ -11,12 +11,13 @@ from rest_framework.response import Response
 from rest_framework_simplejwt import authentication
 
 from api.models import User, Category, Answer, Question, Quiz
+from api.permissions import AdminOnly
 from api.serializers import UserSerializer, CategorySerializer, AnswerSerializer, QuestionSerializer, QuizSerializer, \
     UserCreateSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated, AdminOnly)
     authentication_classes = (authentication.JWTAuthentication,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -51,13 +52,13 @@ class AnswerViewSet(viewsets.ModelViewSet):
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AdminOnly]
     authentication_classes = (authentication.JWTAuthentication,)
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
     def create(self, request, *args, **kwargs):
-        ValidateUser(request)
+        # ValidateUser(request)
         category = get_object_or_404(Category, id=request.data['category'])
         del request.data['category']
 
